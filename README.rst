@@ -9,6 +9,8 @@ Installation
 ------------
 
     make && sudo make install
+    or if you need to use Python2 on a Python3 system...
+    make PYTHON=python2 && sudo make PYTHON=python2 install    
 
 or
 

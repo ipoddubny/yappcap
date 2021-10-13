@@ -1,5 +1,8 @@
+
+PYTHON := python
+
 all: yappcap.c
-	python setup.py build_ext
+	$(PYTHON) setup.py build_ext
 
 yappcap.c: yappcap.pyx definitions.pxi
 	cython yappcap.pyx
@@ -11,7 +14,7 @@ generate_defs:
 	cc -Wall -o generate_defs generate_defs.c -lpcap
 
 clean:
-	python setup.py clean
+	$(PYTHON) setup.py clean
 	rm -f generate_defs definitions.pxi *.so
 
 regen: clean
@@ -19,7 +22,7 @@ regen: clean
 	make
 
 install: all
-	python setup.py install
+	$(PYTHON) setup.py install
 
 .PHONY: clean
 .PHONY: install
