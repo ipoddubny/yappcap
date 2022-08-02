@@ -1,7 +1,5 @@
 build/
 dist/
-definitions.pxi
-generate_defs
 *.so
 yappcap.c
-yappcap.egg-info/
+*.egg-info/
