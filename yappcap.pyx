@@ -1,4 +1,4 @@
-#cython: embedsignature=True
+#cython: language_level=3, embedsignature=True
 #distutils: libraries = pcap
 include "definitions.pxi"
 from pcap cimport *
@@ -809,7 +809,8 @@ def lib_version():
 
 def findalldevs():
     """Return a list of available PcapInterfaces"""
-    cdef pcap_if_t *interfaces, *it
+    cdef pcap_if_t *interfaces
+    cdef pcap_if_t *it
     cdef char errbuf[PCAP_ERRBUF_SIZE]
     cdef int res = pcap_findalldevs(&interfaces, errbuf)
     cdef list result = list()
